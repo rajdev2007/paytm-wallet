@@ -65,6 +65,9 @@ router.post("/signin", async(req, res)=>{
         })
         return;
     }
+    res.json({
+        msg: "User dosen't exist"
+    })
 })
 
 module.exports = router;
