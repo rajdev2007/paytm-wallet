@@ -3,6 +3,7 @@ const zod = require("zod");
 const { User } = require("../db");
 const jwt = require("jsonwebtoken");
 const JWT_SECRET = require("../config");
+const { authMiddleware } = require("../middleware")
 const router = express.Router();
 
 
@@ -67,6 +68,27 @@ router.post("/signin", async(req, res)=>{
     }
     res.json({
         msg: "User dosen't exist"
+    })
+})
+
+const updateSchema = zod.object({
+    password: zod.string().optional(),
+    firstname: zod.string().optional(),
+    lastname: zod.string().optional()
+})
+router.post("/update", authMiddleware, async(req, res)=>{
+    const {success} = updateSchema.safeParse(req.body)
+    if (!success){
+        res.json({
+            msg: "Error while updating information"
+        })
+    }
+    await User.updateOne(
+        { _id: req.userId },
+        {$set: req.body})
+    
+    res.json({
+        msg: "Updated successfully"
     })
 })
 
