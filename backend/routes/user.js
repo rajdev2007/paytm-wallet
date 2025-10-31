@@ -17,15 +17,15 @@ router.post("/signup", async (req, res)=>{
     const body = req.body;
     const {success} = signupSchema.safeParse(req.body);
     if (!success){
-        return res.json({
-            msg: "Email already taken / Incorrect inputs"
+        return res.status(400).json({
+            msg: "Incorrect inputs"
         })
     }
     const user = await User.findOne({
         username: body.username
     })
     if (user) {
-        return res.json({
+        return res.status(400).json({
             msg: "Email already taken / Incorrect inputs"
         })
     }
@@ -50,7 +50,7 @@ router.post("/signin", async(req, res)=>{
     const body = req.body;
     const { success } = signinSchema.safeParse(req.body)
     if (!success){
-        res.json({
+        res.status(400).json({
             msg: "Incorrect inputs"
         })
     }
@@ -70,7 +70,7 @@ router.post("/signin", async(req, res)=>{
         })
         return;
     }
-    res.json({
+    res.status(400).json({
         msg: "User dosen't exist"
     })
 })
@@ -83,7 +83,7 @@ const updateSchema = zod.object({
 router.post("/update", authMiddleware, async(req, res)=>{
     const {success} = updateSchema.safeParse(req.body)
     if (!success){
-        res.json({
+        res.status(500).json({
             msg: "Error while updating information"
         })
     }

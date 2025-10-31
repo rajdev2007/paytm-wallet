@@ -5,7 +5,7 @@ const authMiddleware = (req, res, next) =>{
     const authHeader = req.headers.authorization;
 
     if (!authHeader || !authHeader.startsWith("Bearer ")){
-        return res.json({
+        return res.status(401).json({
             msg: "authorization unsuccessfull"
         })
     }
@@ -17,7 +17,7 @@ const authMiddleware = (req, res, next) =>{
         req.userId = decoded.userId;
         next();
     } catch (err) {
-        return res.json({
+        return res.status(401).json({
             msg: "error while authentication"
         })
     }
