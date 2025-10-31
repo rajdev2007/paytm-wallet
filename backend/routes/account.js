@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const { Account } = require("../db")
+const { User, Account } = require("../db")
 const { authMiddleware } = require("../middleware");
 const { default: mongoose } = require("mongoose");
 
@@ -21,6 +21,15 @@ router.post("/transfer", authMiddleware, async(req,res)=>{
     
     const { amount, to } = req.body;
 
+    const toUser = await User.findOne({username: to});
+    if(!toUser){
+        await session.abortTransaction();
+        session.endSession();
+        return res.status(400).json({
+            msg: "Receiver not found"
+        })
+    }
+
     const account = await Account.findOne({userId: req.userId}).session(session);
     if (!account || account.balance<amount){
         await session.abortTransaction();
@@ -30,7 +39,7 @@ router.post("/transfer", authMiddleware, async(req,res)=>{
         })
     }
 
-    const toAccount = await Account.findOne({userId: to}).session(session);
+    const toAccount = await Account.findOne({userId: toUser._id}).session(session);
     if(!toAccount){
         await session.abortTransaction();
         session.endSession();
@@ -40,7 +49,7 @@ router.post("/transfer", authMiddleware, async(req,res)=>{
     }
 
     await Account.updateOne({userId: req.userId}, {$inc: {balance: -amount}}).session(session);
-    await Account.updateOne({userId: to}, {$inc: {balance: amount}}).session(session);
+    await Account.updateOne({userId: toUser._id}, {$inc: {balance: amount}}).session(session);
 
     await session.commitTransaction();
     session.endSession();
