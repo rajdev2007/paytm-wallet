@@ -1,33 +1,41 @@
-import { useState } from "react";
+import { Link, NavLink } from "react-router-dom";
 
 export const Navbar = ()=>{
-    
-    const [active, setActive] = useState("Home");
-    const navItems = ["Home", "Transfer", "Contact", "About"];
+
+    const navItems = [
+      {name: "Home", path: "/"}, 
+      {name: "Transfer", path: "/transfer"},
+      {name: "Contact", path: "/contact"},
+      {name: "About", path: "/about"}
+    ];
 
     return <div className="flex justify-between bg-white items-center">
 
         <div className="w-48">
-            <img src="/logo.png" alt="logo" />
+          <Link to={"/"}><img src="/logo.png" alt="logo" /></Link>
         </div>
 
         <div className="flex justify-center gap-6 font-semibold text-2xl">
-            {navItems.map((item) => (
-          <button
-            key={item}
-            onClick={() => setActive(item)}
-            className={`
-              relative transition-colors duration-200 
-              hover:text-[#00baf2] 
-              ${active === item ? "text-[#00baf2]" : ""}
-            `}
-          >
-            {item}
-            {active === item && (
-              <span className="absolute bottom-[-4px] left-0 w-full h-[2px] bg-[#00baf2] rounded-full"></span>
-            )}
-          </button>
-        ))}
+          {navItems.map((item) => (
+            <NavLink
+              key={item.name}
+              to={item.path}
+              className={({ isActive }) =>
+                `relative transition-colors duration-200 hover:text-[#00baf2] ${
+                  isActive ? "text-[#00baf2]" : ""
+                }`
+              }
+            >
+              {({ isActive }) => (
+                <>
+                  {item.name}
+                  {isActive && (
+                    <span className="absolute bottom-[-4px] left-0 w-full h-[2px] bg-[#00baf2] rounded-full"></span>
+                  )}
+                </>
+              )}
+            </NavLink>
+          ))}
         </div>
 
         <div className="pr-4">
