@@ -23,7 +23,6 @@ export const Navbar = ()=>{
           Authorization: token
         }
       });
-      console.log(response)
       if (response.status === 200) {
         navigate("/account");
       } else {
@@ -47,8 +46,8 @@ export const Navbar = ()=>{
               key={item.name}
               to={item.path}
               className={({ isActive }) =>
-                `relative transition-colors duration-200 hover:text-[#00baf2] ${
-                  isActive ? "text-[#00baf2]" : ""
+                `relative transition-colors duration-200 hover:text-blue-500 ${
+                  isActive ? "text-blue-500" : ""
                 }`
               }
             >
@@ -56,7 +55,7 @@ export const Navbar = ()=>{
                 <>
                   {item.name}
                   {isActive && (
-                    <span className="absolute bottom-[-4px] left-0 w-full h-[2px] bg-[#00baf2] rounded-full"></span>
+                    <span className="absolute bottom-[-4px] left-0 w-full h-[2px] bg-blue-500 rounded-full"></span>
                   )}
                 </>
               )}
