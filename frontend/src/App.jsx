@@ -5,6 +5,7 @@ import Signup from "./pages/Signup";
 import Transfer from "./pages/Transfer";
 import Contact from './pages/Contact';
 import About from './pages/About';
+import Account from './pages/Account';
 
 function App() {
 
@@ -17,6 +18,7 @@ function App() {
           <Route path="/transfer" element={<Transfer />} />
           <Route path="/contact" element={<Contact/>} />
           <Route path="/about" element={<About />} />
+          <Route path="/account" element={<Account />} />
       </Routes>
     </div>
   )
