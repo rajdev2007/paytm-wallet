@@ -3,35 +3,10 @@ import { Navbar } from "../components/Navbar"
 import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import Footer from "../components/Footer";
+import { AvailableBalance } from "../components/AvailableBalance";
 
 function Home (){
-    const [balance, setBalance] = useState(0.00);
-    const token = localStorage.getItem("token");
-    async function fetchBalance(){
-        if (!token){
-            setBalance(0.00);
-            return;
-        }
-        try{
-            const response = await axios.get("http://localhost:3000/api/v1/account/balance",{
-                headers: {
-                    Authorization: token
-                }
-            })
-            if (response.status === 200 && response.data.balance !== undefined) {
-                setBalance(response.data.balance);
-            } else {
-                setBalance(0.0);
-            }
-        } catch (error) {
-            console.error("Error fetching balance:", error);
-            setBalance(0.00);
-        }
-    }
-
-    useEffect(()=>{
-        fetchBalance();
-    }, []);
+    
 
     return <div>
 
@@ -39,14 +14,7 @@ function Home (){
 
         <div className="grid grid-cols-12 bg-white items-center shadow-xl ml-60 mr-60 mt-12 rounded-2xl h-60">
 
-            <div className="col-span-4 bg-blue-200 rounded-2xl flex flex-col justify-center items-center h-40 ml-10 w-96">
-                <div className="font-semibold text-xl text-blue-950 mb-2">
-                    Available Balance
-                </div>
-                <div className="font-bold text-6xl text-blue-500">
-                    ₹{balance.toFixed(2)}
-                </div>
-            </div>
+            <AvailableBalance></AvailableBalance>
 
             <div className="col-span-8 flex justify-end gap-14 mr-10 items-center">
                 <div className="cursor-pointer">
