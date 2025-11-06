@@ -12,8 +12,8 @@ function Transfer (){
         </div>
 
         <div className="flex flex-col mt-14 bg-white rounded-2xl gap-8 p-8 w-96 ml-11 shadow-xl">
-            <input className="p-4 border rounded-xl " placeholder="Recipient Username"></input>
-            <input className="p-4 border rounded-xl " placeholder="₹0.00"></input>
+            <input className="p-4 border border-gray-400 placeholder-gray-400 rounded-xl " placeholder="Recipient Username"></input>
+            <input className="p-4 border border-gray-400 placeholder-gray-400 rounded-xl " placeholder="₹0.00"></input>
             <button className="rounded-xl border p-4 bg-blue-500">Send Money</button>
         </div>
     </div>
