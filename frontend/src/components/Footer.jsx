@@ -32,9 +32,34 @@ function Footer() {
           <p className="text-gray-600 text-sm">📧 raj.vibes2007@gmail.com</p>
           <p className="text-gray-600 text-sm">📍 Somewhere in New Delhi, India</p>
           <div className="flex justify-center md:justify-start space-x-4 mt-3">
-            <img src="/twitter.svg" className="w-6 h-6 cursor-pointer hover:opacity-75" alt="Twitter" />
-            <img src="/instagram.svg" className="w-6 h-6 cursor-pointer hover:opacity-75" alt="Instagram" />
-            <img src="/linkedin.svg" className="w-6 h-6 cursor-pointer hover:opacity-75" alt="LinkedIn" />
+            <a
+              href="https://x.com/raj_mern"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+            <img src="/twitter-x-logo.png" className="w-6 h-6 cursor-pointer hover:opacity-75" alt="Twitter" />
+            </a>
+
+            <a
+              href="https://www.instagram.com/_raj_fr_/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                src="/instagram-logo.png"
+                className="w-6 h-6 cursor-pointer hover:opacity-75 transition-opacity duration-200"
+                alt="Instagram"
+              />
+            </a>
+
+            <a
+              href="https://www.linkedin.com/in/raj-kashyap-28-aug-stfu-sybau/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+            <img src="/linkedin-in-logo.png" className="w-6 h-6 cursor-pointer hover:opacity-75" alt="LinkedIn" />
+            </a>
+
           </div>
         </div>
       </div>
