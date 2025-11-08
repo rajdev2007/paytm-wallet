@@ -21,7 +21,7 @@ export const Navbar = ()=>{
     try {
       const response = await axios.get("http://localhost:3000/api/v1/user/me", {
         headers: {
-          Authorization: token
+          Authorization: "Bearer " + token
         }
       });
       if (response.status === 200) {

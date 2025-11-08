@@ -1,28 +1,21 @@
-const JWT_SECRET = require("./config");
 const jwt = require("jsonwebtoken");
+const JWT_SECRET = require("./config");
 
-const authMiddleware = (req, res, next) =>{
-    const authHeader = req.headers.authorization;
+const authMiddleware = (req, res, next) => {
+  const authHeader = req.headers.authorization;
+  if (!authHeader || !authHeader.startsWith("Bearer ")) {
+    return res.status(403).json({ msg: "Authorization header missing" });
+  }
 
-    if (!authHeader || !authHeader.startsWith("Bearer ")){
-        return res.status(401).json({
-            msg: "authorization unsuccessfull"
-        })
-    }
+  const token = authHeader.split(" ")[1];
 
-    const token = authHeader.split(" ")[1];
-    
-    try{
-        const decoded = jwt.verify(token, JWT_SECRET);
-        req.userId = decoded.userId;
-        next();
-    } catch (err) {
-        return res.status(401).json({
-            msg: "error while authentication"
-        })
-    }
-}
+  try {
+    const decoded = jwt.verify(token, JWT_SECRET);
+    req.userId = decoded.userId;
+    next();
+  } catch (error) {
+    return res.status(403).json({ msg: "Invalid or expired token" });
+  }
+};
 
-module.exports = {
-    authMiddleware
-}
+module.exports = { authMiddleware };
