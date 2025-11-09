@@ -60,7 +60,7 @@ router.post("/signup", async (req, res) => {
   }
 });
 
-// ✅ Signin
+// ✅ Login
 router.post("/login", async (req, res) => {
   try {
     const body = req.body;
