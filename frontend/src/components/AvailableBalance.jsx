@@ -11,7 +11,7 @@ export const AvailableBalance = ({ refreshTrigger }) => {
       return;
     }
     try {
-      const response = await axios.get("http://localhost:3000/api/v1/account/balance", {
+      const response = await axios.get("https://paytm-wallet-9rzi.onrender.com/api/v1/account/balance", {
         headers: {
           Authorization: "Bearer " + token,
         },

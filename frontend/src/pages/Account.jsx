@@ -23,7 +23,7 @@ function Account() {
 
     const fetchUser = async () => {
       try {
-        const res = await axios.get("http://localhost:3000/api/v1/user/me", {
+        const res = await axios.get("https://paytm-wallet-9rzi.onrender.com/api/v1/user/me", {
           headers: { Authorization: "Bearer " + token },
         });
         setUser(res.data.user || {});
@@ -44,7 +44,7 @@ function Account() {
   // ✅ Save updated profile
   const handleSave = async () => {
     try {
-      const res = await axios.put("http://localhost:3000/api/v1/user/update", user, {
+      const res = await axios.put("https://paytm-wallet-9rzi.onrender.com/api/v1/user/update", user, {
         headers: {
           Authorization: "Bearer " + token,
           "Content-Type": "application/json",

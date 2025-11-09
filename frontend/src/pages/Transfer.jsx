@@ -16,7 +16,7 @@ function Transfer() {
     const fetchUsers = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:3000/api/v1/user/bulk?filter=${recipient || ""}`,
+          `https://paytm-wallet-9rzi.onrender.com/api/v1/user/bulk?filter=${recipient || ""}`,
           {
             headers: {
               Authorization: "Bearer " + localStorage.getItem("token"),
@@ -41,7 +41,7 @@ function Transfer() {
 
     try {
       const response = await axios.post(
-        "http://localhost:3000/api/v1/account/transfer",
+        "https://paytm-wallet-9rzi.onrender.com/api/v1/account/transfer",
         {
           to: recipient,
           amount: Number(amount),

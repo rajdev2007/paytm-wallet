@@ -20,7 +20,7 @@ function Contact() {
 
     try {
       // You can connect this to a backend endpoint if needed
-      // Example: await axios.post("http://localhost:3000/api/contact", formData);
+      // Example: await axios.post("https://paytm-wallet-9rzi.onrender.com/api/contact", formData);
       console.log("Form submitted:", formData);
 
       setStatus("✅ Message sent successfully!");

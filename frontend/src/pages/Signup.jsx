@@ -20,7 +20,7 @@ function Signup() {
     setMessage("");
 
     try {
-      const response = await axios.post("http://localhost:3000/api/v1/user/signup", formData);
+      const response = await axios.post("https://paytm-wallet-9rzi.onrender.com/api/v1/user/signup", formData);
 
       if (response.status === 200) {
         setMessage("✅ Signup successful! Please login now.");
