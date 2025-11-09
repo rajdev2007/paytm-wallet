@@ -32,16 +32,16 @@ function About() {
         </h2>
         <div className="flex flex-col items-center gap-4 mt-4">
           <img
-            src="/raj-profile.jpg"
+            src="/profile.jpeg"
             alt="Raj"
-            className="w-24 h-24 rounded-full border-4 border-blue-400 shadow-lg"
+            className="w-2/12 h-36 rounded-full border-4 border-blue-400 shadow-lg"
           />
           <p className="text-lg text-gray-800 font-medium">
             <span className="font-semibold">Raj Kashyap</span> — Developer & Designer
           </p>
           <p className="text-gray-600 text-base max-w-md">
             A passionate web developer from India who loves building modern web apps with elegant designs, 
-            real functionality, and clean UI using React, Tailwind, and Node.js.
+            real functionality, and clean UI.
           </p>
         </div>
 
@@ -69,19 +69,30 @@ function About() {
             />
           </a>
           <a
-            href="mailto:youremail@gmail.com"
+            href="https://x.com/raj_mern"
             target="_blank"
             rel="noopener noreferrer"
           >
             <img
-              src="/email-icon.png"
-              alt="Email"
+              src="/twitter-x-logo.png"
+              alt="twitter"
               className="w-8 h-8 hover:opacity-75 transition"
             />
           </a>
+          <a
+              href="https://www.linkedin.com/in/raj-kashyap-28-aug-stfu-sybau/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="pt-0.5"
+            >
+            <img 
+            src="/linkedin-in-logo.png" 
+            className="w-7 h-7 cursor-pointer hover:opacity-75" 
+            alt="LinkedIn" />
+          </a>
         </div>
 
-        <footer className="text-gray-500 text-sm mt-10">
+        <footer className="text-gray-500 text-sm mt-10">rajj
           © {new Date().getFullYear()} _raj_fr_. All rights reserved.
         </footer>
       </div>

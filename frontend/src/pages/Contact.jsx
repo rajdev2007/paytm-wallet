@@ -90,22 +90,9 @@ function Contact() {
             <img
               src="/instagram-logo.png"
               alt="Instagram"
-              className="w-8 h-8 cursor-pointer hover:opacity-75 transition"
+              className="w-8 h-8 hover:opacity-75 transition"
             />
           </a>
-
-          <a
-            href="mailto:youremail@gmail.com"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img
-              src="/email-icon.png"
-              alt="Email"
-              className="w-8 h-8 cursor-pointer hover:opacity-75 transition"
-            />
-          </a>
-
           <a
             href="https://github.com/rajdev2007"
             target="_blank"
@@ -114,8 +101,30 @@ function Contact() {
             <img
               src="/github-logo.png"
               alt="GitHub"
-              className="w-8 h-8 cursor-pointer hover:opacity-75 transition"
+              className="w-8 h-8 hover:opacity-75 transition"
             />
+          </a>
+          <a
+            href="https://x.com/raj_mern"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              src="/twitter-x-logo.png"
+              alt="twitter"
+              className="w-8 h-8 hover:opacity-75 transition"
+            />
+          </a>
+          <a
+              href="https://www.linkedin.com/in/raj-kashyap-28-aug-stfu-sybau/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="pt-0.5"
+            >
+            <img 
+            src="/linkedin-in-logo.png" 
+            className="w-7 h-7 cursor-pointer hover:opacity-75" 
+            alt="LinkedIn" />
           </a>
         </div>
       </div>

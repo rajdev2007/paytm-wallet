@@ -33,6 +33,18 @@ function Footer() {
           <p className="text-gray-600 text-sm">📍 Somewhere in New Delhi, India</p>
           <div className="flex justify-center md:justify-start space-x-4 mt-3">
             <a
+            href="https://github.com/rajdev2007"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="pb-0.5"
+          >
+            <img
+              src="/github-logo.png"
+              alt="GitHub"
+              className="w-6 h-6 hover:opacity-75 transition"
+            />
+            </a>
+            <a
               href="https://x.com/raj_mern"
               target="_blank"
               rel="noopener noreferrer"
