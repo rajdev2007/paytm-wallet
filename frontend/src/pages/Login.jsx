@@ -18,7 +18,7 @@ function Login() {
     setMessage("");
 
     try {
-      const response = await axios.post("https://paytm-wallet-9rzi.onrender.com/api/v1/user/signin", formData);
+      const response = await axios.post("https://paytm-wallet-9rzi.onrender.com/api/v1/user/login", formData);
 
       if (response.status === 200 && response.data.token) {
         // Save JWT token to localStorage

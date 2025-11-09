@@ -15,7 +15,7 @@ const signupSchema = zod.object({
   lastname: zod.string(),
 });
 
-const signinSchema = zod.object({
+const loginSchema = zod.object({
   username: zod.string(),
   password: zod.string(),
 });
@@ -61,10 +61,10 @@ router.post("/signup", async (req, res) => {
 });
 
 // ✅ Signin
-router.post("/signin", async (req, res) => {
+router.post("/login", async (req, res) => {
   try {
     const body = req.body;
-    const { success } = signinSchema.safeParse(body);
+    const { success } = loginSchema.safeParse(body);
     if (!success) {
       return res.status(400).json({ msg: "Incorrect inputs" });
     }
